@@ -39,9 +39,8 @@ export default function StudentList(props) {
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>Patient Id</th>
-                                <th>Patient Name</th>
-                                <th>Patient Age</th>
+                                <th>Student Id</th>
+                                <th>Student Name</th>
                                 <th>Address</th>
                                 <th>Edit/Delete</th>
                             </tr>
