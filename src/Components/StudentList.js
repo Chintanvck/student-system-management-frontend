@@ -51,17 +51,16 @@ export default function StudentList(props) {
                                     <td colSpan={5}>{students.length} Students Available!!!</td>
                                 </tr>
                             ) : (
-                                patients.map((patient) =>
-                                    <tr key={patient.id}>
-                                        <td>{patient.id}</td>
-                                        <td>{patient.name}</td>
-                                        <td>{patient.age}</td>
-                                        <td>{patient.address}</td>
+                                students.map((student) =>
+                                    <tr key={student.id}>
+                                        <td>{student.id}</td>
+                                        <td>{student.name}</td>
+                                        <td>{student.address}</td>
                                         <td>
                                             <ButtonGroup>
-                                                <Link to={"/editpatient/" + patient.id}><Button size="sm" variant="outline-primary">
+                                                <Link to={"/editpatient/" + student.id}><Button size="sm" variant="outline-primary">
                                                     <FontAwesomeIcon icon={faEdit}> Edit </FontAwesomeIcon></Button></Link>{' '}
-                                                <Button size="sm" variant="outline-danger" onClick={deletePatient.bind(this, patient.id)}><FontAwesomeIcon icon={faTrash}> Delete </FontAwesomeIcon></Button>
+                                                <Button size="sm" variant="outline-danger" onClick={deleteStudent.bind(this, student.id)}><FontAwesomeIcon icon={faTrash}> Delete </FontAwesomeIcon></Button>
                                             </ButtonGroup>
                                         </td>
                                     </tr>
