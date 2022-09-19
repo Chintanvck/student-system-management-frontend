@@ -27,8 +27,8 @@ export default function UpdateStudent(props) {
       }
     }, []);
   
-    let patient = {
-    //   id: id,
+    let student = {
+      id: id,
       name: name,
       address: address
     };
@@ -58,9 +58,9 @@ export default function UpdateStudent(props) {
     //       .catch((error) => props.showAlert("danger", "Error"));
     // };
   
-    let updatePatient = (event) => {
+    let updateStudent = (event) => {
       event.preventDefault();
-      axios.put("http://localhost:8080/updatepatient/" + patientId, patient).then((response) => {
+      axios.put("http://localhost:8080/updatepatient/" + studentId, student).then((response) => {
         if (response.data != null) {
           alert("success", "Record updated successfully");
           navigate("/listpatient"); // Navigate to Students List Components
@@ -72,12 +72,12 @@ export default function UpdateStudent(props) {
       <div className="my-3">
         <Container>
           <Card>
-            <Form onSubmit={updatePatient }>
+            <Form onSubmit={updateStudent }>
               <Card.Header>
                 <strong>{"Update Patient Information"}</strong>
               </Card.Header>
               <Card.Body>
-                {/* <Form.Group className="mb-3" >
+                <Form.Group className="mb-3" >
                   <Form.Label>Id</Form.Label>
                   <Form.Control
                     name="id"
@@ -86,7 +86,7 @@ export default function UpdateStudent(props) {
                     placeholder="Enter id"
                     onChange={textChanged}
                   />
-                </Form.Group> */}
+                </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
