@@ -46,9 +46,9 @@ export default function StudentList(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {patients.length === 0 ? (
+                            {students.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5}>{patients.length} Patients Available!!!</td>
+                                    <td colSpan={5}>{students.length} Students Available!!!</td>
                                 </tr>
                             ) : (
                                 patients.map((patient) =>
