@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function PatientList(props) {
-    const [patients, setPatients] = useState([]);
+export default function StudentList(props) {
+    const [students, setStudents] = useState([]);
 
     useEffect(() => {
-        getPatients();
+        getStudents();
     }, []);
 
-    let getPatients = () => {
+    let getStudents = () => {
         axios
             .get("http://localhost:8080/listpatient")
             .then((response) => setPatients(response.data))
             .catch((error) => alert(error));
     };
 
-    let deletePatient = (patientId) => {
+    let deleteStudent = (patientId) => {
       axios.delete("http://localhost:8080/deletepatient/"+patientId)
       .then(response=> {
         if (response.data !== null){

@@ -9,7 +9,7 @@ export default function AddStudent(props) {
     const [name, setName] = useState(null);
     const [address, setAddress] = useState(null);
   
-    const { patientId } = useParams(); // Get the Path Parameter from the URL
+    const { studentId } = useParams(); // Get the Path Parameter from the URL
     const navigate = useNavigate();
   
     // useEffect(() => {
@@ -28,7 +28,7 @@ export default function AddStudent(props) {
     //   }
     // }, []);
   
-    let patient = {
+    let student = {
       id: id,
       name: name,
       address: address
@@ -44,11 +44,11 @@ export default function AddStudent(props) {
       }
     };
   
-    let savePatient = (event) => {
+    let saveStudent = (event) => {
       event.preventDefault();
       
         axios
-          .post("http://localhost:8080/addStudent", patient)
+          .post("http://localhost:8080/addStudent", student)
           .then((response) => {
             if (response.data != null) {
               alert("Record added successfully");
@@ -72,9 +72,9 @@ export default function AddStudent(props) {
       <div className="my-3">
         <Container>
           <Card>
-            <Form onSubmit={savePatient}>
+            <Form onSubmit={saveStudent}>
               <Card.Header>
-                <strong>{"Add Patient Information"}</strong>
+                <strong>{"Add Student Information"}</strong>
               </Card.Header>
               <Card.Body>
                 <Form.Group className="mb-3" >
@@ -96,16 +96,6 @@ export default function AddStudent(props) {
                     placeholder="Enter name"
                     onChange={textChanged}
                   />
-                  <Form.Group className="mb-3">
-                  <Form.Label>Age</Form.Label>
-                  <Form.Control
-                    name="age"
-                    value={age}
-                    type="text"
-                    placeholder="Enter Age"
-                    onChange={textChanged}
-                  />
-                </Form.Group>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Address</Form.Label>
@@ -120,7 +110,7 @@ export default function AddStudent(props) {
               </Card.Body>
               <Card.Footer>
                 <Button variant="primary" type="submit">
-                  {patientId != null ? "Update" : "Submit"}
+                  {studentId != null ? "Update" : "Submit"}
                 </Button>
               </Card.Footer>
             </Form>
