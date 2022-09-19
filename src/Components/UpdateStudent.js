@@ -96,16 +96,6 @@ export default function UpdateStudent(props) {
                     placeholder="Enter name"
                     onChange={textChanged}
                   />
-                  <Form.Group className="mb-3">
-                  <Form.Label>Age</Form.Label>
-                  <Form.Control
-                    name="age"
-                    value={age}
-                    type="text"
-                    placeholder="Enter Age"
-                    onChange={textChanged}
-                  />
-                </Form.Group>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Address</Form.Label>
