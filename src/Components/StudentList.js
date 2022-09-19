@@ -19,12 +19,12 @@ export default function StudentList(props) {
             .catch((error) => alert(error));
     };
 
-    let deleteStudent = (patientId) => {
-      axios.delete("http://localhost:8080/deletepatient/"+patientId)
+    let deleteStudent = (studentId) => {
+      axios.delete("http://localhost:8080/deletepatient/"+studentId)
       .then(response=> {
         if (response.data !== null){
           alert("Record deleted successfully")
-          setPatients(patients.filter(patient=>patient.id!==patientId));
+          setStudents(students.filter(student=>student.id!==studentId));
         }
       })
     }
@@ -33,7 +33,7 @@ export default function StudentList(props) {
         <div className="my-3">
             <Container>
                 <Card.Header>
-                    <h3>Patients List</h3>
+                    <h3>Student List</h3>
                 </Card.Header>
                 <Card.Body>
                     <Table striped bordered hover>
