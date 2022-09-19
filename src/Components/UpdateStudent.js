@@ -4,25 +4,23 @@ import { Container, Form, Card, Button } from "react-bootstrap";
 import { Navigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function UpdatePatient(props) {
+export default function UpdateStudent(props) {
     const [id, setId] = useState(null);
     const [name, setName] = useState(null);
     const [address, setAddress] = useState(null);
-    const [age, setAge] = useState(null);
   
-    const { patientId } = useParams(); // Get the Path Parameter from the URL
+    const { studentId } = useParams(); // Get the Path Parameter from the URL
     const navigate = useNavigate();
   
     useEffect(() => {
-      if (patientId) {
+      if (studentId) {
         axios
-          .get("http://localhost:8080/patient/" + patientId)
+          .get("http://localhost:8080/patient/" + studentId)
           .then((response) => {
             if (response.data != null) {
             //   setId(response.data.id);
               setName(response.data.name);
               setAddress(response.data.address);
-              setAge(response.data.age);
             }
           })
           .catch((error) => alert("danger", "Error"));
@@ -32,21 +30,18 @@ export default function UpdatePatient(props) {
     let patient = {
     //   id: id,
       name: name,
-      address: address,
-      age: age
+      address: address
     };
   
     let textChanged = (event) => {
-    //   if (event.target.name === "id") {
-    //     setId(event.target.value);
-    //   } 
-      if (event.target.name === "name") {
+      if (event.target.name === "id") {
+        setId(event.target.value);
+      } 
+      else if (event.target.name === "name") {
         setName(event.target.value);
       } else if (event.target.name === "address") {
         setAddress(event.target.value);
-      }else if (event.target.name === "age") {
-          setAge(event.target.value);
-        }
+      }
     };
   
     // let savePatient = (event) => {
